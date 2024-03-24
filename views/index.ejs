@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Habit Tracker</h1>
+    <h2>Current Habits</h2>
+    <ul>
+        <% habits.forEach(habit => { %>
+            <li><%= habit.name %></li>
+        <% }) %>
+    </ul>
+    <form action="/habits" method="post">
+        <input type="text" name="name" placeholder="Enter habit name" required>
+        <button type="submit">Add Habit</button>
+    </form>
+</body>
+</html>

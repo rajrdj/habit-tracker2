@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Details</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Habit Details</h1>
+    <h2><%= habit.name %></h2>
+    <ul>
+        <% habit.statuses.forEach((status, index) => { %>
+            <li><%= getDate(index) %>: <%= status %></li>
+        <% }) %>
+    </ul>
+    <form action="/habits/<%= habit._id %>" method="post">
+        <% for(let i = 0; i < 7; i++) { %>
+            <input type="radio" name="status" value="done" id="done<%= i %>" <%= habit.statuses[i] === "done" ? "checked" : "" %>>
+            <label for="done<%= i %>">Done</label>
+            <input type="radio" name="status" value="not_done" id="notDone<%= i %>" <%= habit.statuses[i] === "not_done" ? "checked" : "" %>>
+            <label for="notDone<%= i %>">Not Done</label>
+            <input type="radio" name="status" value="none" id="none<%= i %>" <%= habit.statuses[i] === "none" ? "checked" : "" %>>
+            <label for="none<%= i %>">None</label><br>
+        <% } %>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

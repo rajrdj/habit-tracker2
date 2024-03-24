@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today's Habit</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Today's Habit</h1>
+    <h2><%= habit.name %></h2>
+    <form action="/habits/<%= habit._id %>/today" method="post">
+        <input type="radio" name="status" value="done" id="done" <%= habit.statuses[6] === "done" ? "checked" : "" %>>
+        <label for="done">Done</label>
+        <input type="radio" name="status" value="not_done" id="notDone" <%= habit.statuses[6] === "not_done" ? "checked" : "" %>>
+        <label for="notDone">Not Done</label>
+        <input type="radio" name="status" value="none" id="none" <%= habit.statuses[6] === "none" ? "checked" : "" %>>
+        <label for="none">None</label><br>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
